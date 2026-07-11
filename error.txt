@@ -1,1 +1,98 @@
-Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+Run cd ios/App && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
+  cd ios/App && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
+  shell: /bin/bash -e {0}
+Command line invocation:
+    /Applications/Xcode_26.5.app/Contents/Developer/usr/bin/xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
+
+2026-07-11 17:06:02.313 xcodebuild[38738:93895] Writing error result bundle to /var/folders/8j/sfr9qqcj73j4p6nhwcfpr0th0000gn/T/ResultBundle_2026-11-07_17-06-0002.xcresult
+xcodebuild: error: 'App.xcworkspace' does not exist.
+Error: Process completed with exit code 66.
+
+
+
+Run cd android && ./gradlew bundleRelease
+Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
+.....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+
+Welcome to Gradle 8.14.3!
+
+Here are the highlights of this release:
+ - Java 24 support
+ - GraalVM Native Image toolchain selection
+ - Enhancements to test reporting
+ - Build Authoring improvements
+
+For more details see https://docs.gradle.org/8.14.3/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Configure project :app
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Configure project :capacitor-cordova-android-plugins
+WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :capacitor-android:preBuild UP-TO-DATE
+> Task :capacitor-android:preReleaseBuild UP-TO-DATE
+> Task :capacitor-android:processReleaseNavigationResources
+> Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:preReleaseBuild UP-TO-DATE
+> Task :capacitor-cordova-android-plugins:processReleaseNavigationResources
+> Task :app:processReleaseNavigationResources
+> Task :app:compileReleaseNavigationResources
+> Task :app:generateReleaseResValues
+> Task :capacitor-android:generateReleaseResValues
+> Task :capacitor-android:generateReleaseResources
+> Task :capacitor-android:packageReleaseResources
+> Task :capacitor-cordova-android-plugins:generateReleaseResValues
+> Task :capacitor-cordova-android-plugins:generateReleaseResources
+> Task :capacitor-cordova-android-plugins:packageReleaseResources
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:generateReleaseResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :capacitor-android:extractDeepLinksRelease
+> Task :capacitor-cordova-android-plugins:extractDeepLinksRelease
+> Task :capacitor-android:processReleaseManifest
+> Task :capacitor-android:writeReleaseAarMetadata
+> Task :app:packageReleaseResources
+> Task :capacitor-cordova-android-plugins:writeReleaseAarMetadata
+> Task :app:mergeReleaseResources
+> Task :capacitor-cordova-android-plugins:processReleaseManifest
+> Task :app:parseReleaseLocalResources
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:processApplicationManifestReleaseForBundle
+> Task :app:checkReleaseAarMetadata
+> Task :capacitor-android:compileReleaseLibraryResources
+> Task :capacitor-cordova-android-plugins:compileReleaseLibraryResources
+> Task :app:processReleaseManifestForPackage
+> Task :capacitor-android:parseReleaseLocalResources
+> Task :capacitor-cordova-android-plugins:parseReleaseLocalResources
+> Task :capacitor-android:generateReleaseRFile
+> Task :app:extractReleaseVersionControlInfo
+> Task :capacitor-cordova-android-plugins:generateReleaseRFile
+> Task :capacitor-android:javaPreCompileRelease
+> Task :app:processReleaseResources
+
+> Task :capacitor-android:compileReleaseJavaWithJavac FAILED
+FAILURE: Build failed with an exception.
+
+[Incubating] Problems report is available at: file:///home/runner/work/emergency-lifesaving/emergency-lifesaving/android/build/reports/problems/problems-report.html
+
+39 actionable tasks: 39 executed
+* What went wrong:
+Execution failed for task ':capacitor-android:compileReleaseJavaWithJavac'.
+> Java compilation initialization error
+    error: invalid source release: 21
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 51s
+Error: Process completed with exit code 1.
