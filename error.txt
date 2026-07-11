@@ -1,98 +1,142 @@
-Run cd ios/App && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
-  cd ios/App && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
-  shell: /bin/bash -e {0}
+Run cd ios/App && xcodebuild -project App.xcodeproj -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
 Command line invocation:
-    /Applications/Xcode_26.5.app/Contents/Developer/usr/bin/xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
+    /Applications/Xcode_26.5.app/Contents/Developer/usr/bin/xcodebuild -project App.xcodeproj -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
 
-2026-07-11 17:06:02.313 xcodebuild[38738:93895] Writing error result bundle to /var/folders/8j/sfr9qqcj73j4p6nhwcfpr0th0000gn/T/ResultBundle_2026-11-07_17-06-0002.xcresult
-xcodebuild: error: 'App.xcworkspace' does not exist.
-Error: Process completed with exit code 66.
+Resolve Package Graph
+
+Fetching from https://github.com/ionic-team/capacitor-swift-pm.git
+
+Creating working copy of package ‘capacitor-swift-pm’
+
+Checking out 8.4.1 of package ‘capacitor-swift-pm’
 
 
+Resolved source packages:
+  CapApp-SPM: /Users/runner/work/emergency-lifesaving/emergency-lifesaving/ios/App/CapApp-SPM @ local
+  capacitor-swift-pm: https://github.com/ionic-team/capacitor-swift-pm.git @ 8.4.1
 
-Run cd android && ./gradlew bundleRelease
-Downloading https://services.gradle.org/distributions/gradle-8.14.3-all.zip
-.....................10%.....................20%......................30%.....................40%......................50%.....................60%.....................70%......................80%.....................90%......................100%
+2026-07-11 17:12:13.087 xcodebuild[47689:112817] [MT] IDERunDestination: Supported platforms for the buildables in the current scheme is empty.
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:96bea8e7cd2e75912f981d79a6235a8185fb38a5, name:My Mac }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:DDCABD9B-7DE5-4DC1-BF81-715CDDCB89B0, OS:26.2, name:Apple Vision Pro }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:0C55B1ED-5214-4052-BD73-226D4608BD5C, OS:26.4.1, name:Apple Vision Pro }
+{ platform:visionOS Simulator, arch:arm64, variant:Designed for [iPad,iPhone], id:946FA61A-B78A-404E-9571-C0D4B2C353E6, OS:26.5, name:Apple Vision Pro }
+{ platform:iOS Simulator, arch:arm64, id:A427525D-A6D2-41DF-8842-36770A3CD19B, OS:26.2, name:iPad (A16) }
+{ platform:iOS Simulator, arch:x86_64, id:A427525D-A6D2-41DF-8842-36770A3CD19B, OS:26.2, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:B8339D89-17AB-46DE-844D-828BB3B84CD2, OS:26.4.1, name:iPad (A16) }
+{ platform:iOS Simulator, arch:x86_64, id:B8339D89-17AB-46DE-844D-828BB3B84CD2, OS:26.4.1, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:B140C696-63D2-407E-A7AA-B2E4FD4225FA, OS:26.5, name:iPad (A16) }
+{ platform:iOS Simulator, arch:x86_64, id:B140C696-63D2-407E-A7AA-B2E4FD4225FA, OS:26.5, name:iPad (A16) }
+{ platform:iOS Simulator, arch:arm64, id:609C8F5B-690F-405C-B161-2B5B1235B459, OS:26.2, name:iPad Air 11-inch (M3) }
+{ platform:iOS Simulator, arch:x86_64, id:609C8F5B-690F-405C-B161-2B5B1235B459, OS:26.2, name:iPad Air 11-inch (M3) }
+{ platform:iOS Simulator, arch:arm64, id:E457B914-536B-4278-A223-7A33B7E574DD, OS:26.4.1, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:E457B914-536B-4278-A223-7A33B7E574DD, OS:26.4.1, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:46E46A88-8671-416A-98E2-5A474A291F2F, OS:26.5, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:46E46A88-8671-416A-98E2-5A474A291F2F, OS:26.5, name:iPad Air 11-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:4A720B07-8AB1-4457-A95D-71E2972D216F, OS:26.2, name:iPad Air 13-inch (M3) }
+{ platform:iOS Simulator, arch:x86_64, id:4A720B07-8AB1-4457-A95D-71E2972D216F, OS:26.2, name:iPad Air 13-inch (M3) }
+{ platform:iOS Simulator, arch:arm64, id:45D98EC3-01BC-4990-AD13-6C27F3228EEE, OS:26.4.1, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:45D98EC3-01BC-4990-AD13-6C27F3228EEE, OS:26.4.1, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:9FD28ADE-55DA-4056-91FF-F03E57B74FB9, OS:26.5, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:x86_64, id:9FD28ADE-55DA-4056-91FF-F03E57B74FB9, OS:26.5, name:iPad Air 13-inch (M4) }
+{ platform:iOS Simulator, arch:arm64, id:C6ABCB32-66DC-4D8A-B428-9491EF377A5C, OS:26.2, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:C6ABCB32-66DC-4D8A-B428-9491EF377A5C, OS:26.2, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:33CEB3BD-E028-4E47-B95D-683B27D389B8, OS:26.4.1, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:33CEB3BD-E028-4E47-B95D-683B27D389B8, OS:26.4.1, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:51E82213-265D-423D-B047-ABEEEC85FA5C, OS:26.5, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:51E82213-265D-423D-B047-ABEEEC85FA5C, OS:26.5, name:iPad Pro 11-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:59F7D9FB-AB3E-41B3-A5C9-5CA1E0F98565, OS:26.2, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:59F7D9FB-AB3E-41B3-A5C9-5CA1E0F98565, OS:26.2, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:934BD2D7-6C10-4A85-B7CE-0FF8464F11F9, OS:26.4.1, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:934BD2D7-6C10-4A85-B7CE-0FF8464F11F9, OS:26.4.1, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:41C5BB98-A758-46EF-9036-CA75F337BE25, OS:26.5, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:x86_64, id:41C5BB98-A758-46EF-9036-CA75F337BE25, OS:26.5, name:iPad Pro 13-inch (M5) }
+{ platform:iOS Simulator, arch:arm64, id:401122B2-AFB1-4F9F-8050-2A0D462799C9, OS:26.2, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:x86_64, id:401122B2-AFB1-4F9F-8050-2A0D462799C9, OS:26.2, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:411CA95B-4B8F-44E3-B467-E49DA4A0E19A, OS:26.4.1, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:x86_64, id:411CA95B-4B8F-44E3-B467-E49DA4A0E19A, OS:26.4.1, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:CE3B9A9E-EF1F-4FE5-B4B9-83A18EE1E807, OS:26.5, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:x86_64, id:CE3B9A9E-EF1F-4FE5-B4B9-83A18EE1E807, OS:26.5, name:iPad mini (A17 Pro) }
+{ platform:iOS Simulator, arch:arm64, id:D66560FA-5A2D-4E26-BCAA-2759215E0E30, OS:26.2, name:iPhone 16e }
+{ platform:iOS Simulator, arch:x86_64, id:D66560FA-5A2D-4E26-BCAA-2759215E0E30, OS:26.2, name:iPhone 16e }
+{ platform:iOS Simulator, arch:arm64, id:A3CE74B5-5D72-4460-99E1-6213896E5CA7, OS:26.2, name:iPhone 17 }
+{ platform:iOS Simulator, arch:x86_64, id:A3CE74B5-5D72-4460-99E1-6213896E5CA7, OS:26.2, name:iPhone 17 }
+{ platform:iOS Simulator, arch:arm64, id:C8B275FD-D2A4-4D5E-AB7E-1657E61E9433, OS:26.4.1, name:iPhone 17 }
+{ platform:iOS Simulator, arch:x86_64, id:C8B275FD-D2A4-4D5E-AB7E-1657E61E9433, OS:26.4.1, name:iPhone 17 }
+{ platform:iOS Simulator, arch:arm64, id:1EEF2719-8915-468C-9221-DFDCE0DA52E1, OS:26.5, name:iPhone 17 }
+{ platform:iOS Simulator, arch:x86_64, id:1EEF2719-8915-468C-9221-DFDCE0DA52E1, OS:26.5, name:iPhone 17 }
+{ platform:iOS Simulator, arch:arm64, id:32636025-BD1E-48FD-87EB-C6904469EF85, OS:26.2, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:32636025-BD1E-48FD-87EB-C6904469EF85, OS:26.2, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:arm64, id:D4E7F36F-A62E-458E-A0A4-0A5DB6256FB3, OS:26.4.1, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:D4E7F36F-A62E-458E-A0A4-0A5DB6256FB3, OS:26.4.1, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:arm64, id:76C906F3-9E09-4597-8379-C4FA7D004EBB, OS:26.5, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:x86_64, id:76C906F3-9E09-4597-8379-C4FA7D004EBB, OS:26.5, name:iPhone 17 Pro }
+{ platform:iOS Simulator, arch:arm64, id:94AB817B-2AE1-471D-AEB9-0072427C6891, OS:26.2, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:94AB817B-2AE1-471D-AEB9-0072427C6891, OS:26.2, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:5692F219-9DA6-4432-953E-6A0D554524D3, OS:26.4.1, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:5692F219-9DA6-4432-953E-6A0D554524D3, OS:26.4.1, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:E298DB70-79A9-4C6F-8D94-B2F4B5588CC1, OS:26.5, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:x86_64, id:E298DB70-79A9-4C6F-8D94-B2F4B5588CC1, OS:26.5, name:iPhone 17 Pro Max }
+{ platform:iOS Simulator, arch:arm64, id:0007C83F-818A-43CD-BDFD-6A1DF6E25B43, OS:26.4.1, name:iPhone 17e }
+{ platform:iOS Simulator, arch:x86_64, id:0007C83F-818A-43CD-BDFD-6A1DF6E25B43, OS:26.4.1, name:iPhone 17e }
+{ platform:iOS Simulator, arch:arm64, id:E85328B6-3FB2-4EF4-8283-0666169E8A22, OS:26.5, name:iPhone 17e }
+{ platform:iOS Simulator, arch:x86_64, id:E85328B6-3FB2-4EF4-8283-0666169E8A22, OS:26.5, name:iPhone 17e }
+{ platform:iOS Simulator, arch:arm64, id:B16726E6-ECDC-4E79-80CC-B5884D397494, OS:26.2, name:iPhone Air }
+{ platform:iOS Simulator, arch:x86_64, id:B16726E6-ECDC-4E79-80CC-B5884D397494, OS:26.2, name:iPhone Air }
+{ platform:iOS Simulator, arch:arm64, id:F6F0C158-7C86-4034-A920-60F000C11CA4, OS:26.4.1, name:iPhone Air }
+{ platform:iOS Simulator, arch:x86_64, id:F6F0C158-7C86-4034-A920-60F000C11CA4, OS:26.4.1, name:iPhone Air }
+{ platform:iOS Simulator, arch:arm64, id:0D429716-3FE0-423D-BB24-AC50E1D3678F, OS:26.5, name:iPhone Air }
+{ platform:iOS Simulator, arch:x86_64, id:0D429716-3FE0-423D-BB24-AC50E1D3678F, OS:26.5, name:iPhone Air }
+ComputePackagePrebuildTargetDependencyGraph
 
-Welcome to Gradle 8.14.3!
+Prepare packages
 
-Here are the highlights of this release:
- - Java 24 support
- - GraalVM Native Image toolchain selection
- - Enhancements to test reporting
- - Build Authoring improvements
+CreateBuildRequest
 
-For more details see https://docs.gradle.org/8.14.3/release-notes.html
+SendProjectDescription
 
-Starting a Gradle Daemon (subsequent builds will be faster)
+CreateBuildOperation
 
-> Configure project :app
-WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (5 targets)
+    Target 'App' in project 'App'
+        ➜ Explicit dependency on target 'CapApp-SPM' in project 'CapApp-SPM'
+    Target 'CapApp-SPM' in project 'CapApp-SPM'
+        ➜ Explicit dependency on target 'CapApp-SPM' in project 'CapApp-SPM'
+        ➜ Explicit dependency on target 'Capacitor' in project 'capacitor-swift-pm'
+        ➜ Explicit dependency on target 'Cordova' in project 'capacitor-swift-pm'
+    Target 'CapApp-SPM' in project 'CapApp-SPM'
+        ➜ Explicit dependency on target 'Capacitor' in project 'capacitor-swift-pm'
+        ➜ Explicit dependency on target 'Cordova' in project 'capacitor-swift-pm'
+    Target 'Cordova' in project 'capacitor-swift-pm' (no dependencies)
+    Target 'Capacitor' in project 'capacitor-swift-pm' (no dependencies)
 
-> Configure project :capacitor-cordova-android-plugins
-WARNING: Using flatDir should be avoided because it doesn't support any meta-data formats.
+GatherProvisioningInputs
 
-> Task :app:preBuild UP-TO-DATE
-> Task :app:preReleaseBuild UP-TO-DATE
-> Task :capacitor-android:preBuild UP-TO-DATE
-> Task :capacitor-android:preReleaseBuild UP-TO-DATE
-> Task :capacitor-android:processReleaseNavigationResources
-> Task :capacitor-cordova-android-plugins:preBuild UP-TO-DATE
-> Task :capacitor-cordova-android-plugins:preReleaseBuild UP-TO-DATE
-> Task :capacitor-cordova-android-plugins:processReleaseNavigationResources
-> Task :app:processReleaseNavigationResources
-> Task :app:compileReleaseNavigationResources
-> Task :app:generateReleaseResValues
-> Task :capacitor-android:generateReleaseResValues
-> Task :capacitor-android:generateReleaseResources
-> Task :capacitor-android:packageReleaseResources
-> Task :capacitor-cordova-android-plugins:generateReleaseResValues
-> Task :capacitor-cordova-android-plugins:generateReleaseResources
-> Task :capacitor-cordova-android-plugins:packageReleaseResources
-> Task :app:mapReleaseSourceSetPaths
-> Task :app:generateReleaseResources
-> Task :app:createReleaseCompatibleScreenManifests
-> Task :app:extractDeepLinksRelease
-> Task :capacitor-android:extractDeepLinksRelease
-> Task :capacitor-cordova-android-plugins:extractDeepLinksRelease
-> Task :capacitor-android:processReleaseManifest
-> Task :capacitor-android:writeReleaseAarMetadata
-> Task :app:packageReleaseResources
-> Task :capacitor-cordova-android-plugins:writeReleaseAarMetadata
-> Task :app:mergeReleaseResources
-> Task :capacitor-cordova-android-plugins:processReleaseManifest
-> Task :app:parseReleaseLocalResources
-> Task :app:processReleaseMainManifest
-> Task :app:processReleaseManifest
-> Task :app:processApplicationManifestReleaseForBundle
-> Task :app:checkReleaseAarMetadata
-> Task :capacitor-android:compileReleaseLibraryResources
-> Task :capacitor-cordova-android-plugins:compileReleaseLibraryResources
-> Task :app:processReleaseManifestForPackage
-> Task :capacitor-android:parseReleaseLocalResources
-> Task :capacitor-cordova-android-plugins:parseReleaseLocalResources
-> Task :capacitor-android:generateReleaseRFile
-> Task :app:extractReleaseVersionControlInfo
-> Task :capacitor-cordova-android-plugins:generateReleaseRFile
-> Task :capacitor-android:javaPreCompileRelease
-> Task :app:processReleaseResources
+CreateBuildDescription
 
-> Task :capacitor-android:compileReleaseJavaWithJavac FAILED
-FAILURE: Build failed with an exception.
+ExecuteExternalTool /Applications/Xcode_26.5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
 
-[Incubating] Problems report is available at: file:///home/runner/work/emergency-lifesaving/emergency-lifesaving/android/build/reports/problems/problems-report.html
+ExecuteExternalTool /Applications/Xcode_26.5.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/emergency-lifesaving/emergency-lifesaving/ios/App/App/Assets.xcassets
 
-39 actionable tasks: 39 executed
-* What went wrong:
-Execution failed for task ':capacitor-android:compileReleaseJavaWithJavac'.
-> Java compilation initialization error
-    error: invalid source release: 21
+ExecuteExternalTool /Applications/Xcode_26.5.app/Contents/Developer/usr/bin/ibtool --version --output-format xml1
 
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
+ExecuteExternalTool /Applications/Xcode_26.5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_26.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.5.sdk -x c -c /dev/null
 
-BUILD FAILED in 51s
-Error: Process completed with exit code 1.
+ExecuteExternalTool /Applications/Xcode_26.5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode_26.5.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+** ARCHIVE FAILED **
+Build description signature: 3665bf65c01a54424b9ce7be120f7cbd
+
+Build description path: /Users/runner/Library/Developer/Xcode/DerivedData/App-gstzbijkrmpxwqepujbaagwwiwbf/Build/Intermediates.noindex/ArchiveIntermediates/App/IntermediateBuildFilesPath/XCBuildData/3665bf65c01a54424b9ce7be120f7cbd.xcbuilddata
+
+/Users/runner/work/emergency-lifesaving/emergency-lifesaving/ios/App/App.xcodeproj: error: Signing for "App" requires a development team. Select a development team in the Signing & Capabilities editor. (in target 'App' from project 'App')
+The following build commands failed:
+	Archiving project App with scheme App
+(1 failure)
+Error: Process completed with exit code 65.
