@@ -18,7 +18,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - run: mkdir -p www/images && cp index.html www/ && cp images/*.png www/images/ 2>/dev/null || true
+      - run: mkdir -p www/images && cp index.html www/ && cp Images/*.png www/images/ 2>/dev/null || true
       - run: npm ci
       - run: npx cap sync android
       - run: cd android && ./gradlew bundleRelease
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: mkdir -p www/images && cp index.html www/ && cp images/*.png www/images/ 2>/dev/null || true
+      - run: mkdir -p www/images && cp index.html www/ && cp Images/*.png www/images/ 2>/dev/null || true
       - run: npm ci
       - run: npx cap sync ios
       - run: cd ios/App && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
