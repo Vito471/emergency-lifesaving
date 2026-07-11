@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Emergency &amp; Life-Saving</string>
+    <string name="title_activity_main">Emergency &amp; Life-Saving</string>
+    <string name="package_name">com.emergency.lifesaving</string>
+    <string name="custom_url_scheme">com.emergency.lifesaving</string>
+</resources>

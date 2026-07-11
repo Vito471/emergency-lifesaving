@@ -1,0 +1,204 @@
+name: Build & Release
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+      upload_to_play_store:
+        description: Upload Android AAB to Play Store (requires secrets)
+        required: false
+        type: boolean
+        default: false
+      upload_to_app_store:
+        description: Upload iOS IPA to App Store (requires secrets)
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ──────────────────────────────────────────────
+  # ANDROID BUILD
+  # ──────────────────────────────────────────────
+  android:
+    name: Android
+    runs-on: ubuntu-latest
+    outputs:
+      aab_path: ${{ steps.locate.outputs.aab }}
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Sync Capacitor
+        run: npx cap sync android
+
+      - name: Extract version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build Android Release (AAB)
+        run: cd android && ./gradlew bundleRelease
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+
+      - name: Locate AAB
+        id: locate
+        run: |
+          AAB=$(find android -name "*.aab" -type f | head -1)
+          echo "aab=$AAB" >> $GITHUB_OUTPUT
+
+      - name: Upload Android Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-release-${{ steps.version.outputs.version }}
+          path: ${{ steps.locate.outputs.aab }}
+          if-no-files-found: error
+
+  # ──────────────────────────────────────────────
+  # iOS BUILD
+  # ──────────────────────────────────────────────
+  ios:
+    name: iOS
+    runs-on: macos-latest
+    # iOS is only built when needed (push to main or manual trigger)
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && github.ref_name == github.event.repository.default_branch)
+    outputs:
+      ipa_path: ${{ steps.locate.outputs.ipa }}
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Sync Capacitor
+        run: npx cap sync ios
+
+      - name: Extract version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Setup code signing
+        if: ${{ secrets.APPLE_DEVELOPER_TEAM_ID != '' }}
+        uses: apple-actions/import-codesign-certs@v3
+        with:
+          p12-file-base64: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_BASE64 }}
+          p12-password: ${{ secrets.IOS_DISTRIBUTION_CERTIFICATE_PASSWORD }}
+
+      - name: Build iOS Archive
+        run: |
+          cd ios/App
+          xcodebuild -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -archivePath build/App.xcarchive \
+            -allowProvisioningUpdates \
+            archive
+
+      - name: Export IPA
+        run: |
+          cd ios/App
+          xcodebuild -exportArchive \
+            -archivePath build/App.xcarchive \
+            -exportPath build/App.ipa \
+            -exportOptionsPlist exportOptions.plist \
+            -allowProvisioningUpdates
+
+      - name: Locate IPA
+        id: locate
+        run: |
+          IPA=$(find ios -name "*.ipa" -type f | head -1)
+          echo "ipa=$IPA" >> $GITHUB_OUTPUT
+
+      - name: Upload iOS Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-release-${{ steps.version.outputs.version }}
+          path: ${{ steps.locate.outputs.ipa }}
+          if-no-files-found: warn
+
+  # ──────────────────────────────────────────────
+  # (OPTIONAL) UPLOAD TO STORES
+  # ──────────────────────────────────────────────
+  deploy_android:
+    name: Upload Android to Play Store
+    needs: [android]
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.upload_to_play_store }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Android artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: android-release-${{ needs.android.outputs.version }}
+
+      - name: Upload to Play Store
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_STORE_SERVICE_ACCOUNT_JSON }}
+          packageName: com.emergency.lifesaving
+          releaseFiles: ./*.aab
+          track: production
+          status: completed
+
+  deploy_ios:
+    name: Upload iOS to App Store
+    needs: [ios]
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.upload_to_app_store }}
+    runs-on: macos-latest
+
+    steps:
+      - name: Download iOS artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ios-release-${{ needs.ios.outputs.version }}
+
+      - name: Upload to App Store
+        uses: apple-actions/upload-testflight-build@v1
+        with:
+          ipa-path: ./*.ipa
+          apple-id: ${{ secrets.APPLE_ID }}
+          app-specific-password: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}

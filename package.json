@@ -1,0 +1,19 @@
+{
+  "name": "emergency-lifesaving",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Emergency & Life-Saving Guide - mobile app for Android and iOS",
+  "scripts": {
+    "copy": "npx cap copy",
+    "sync": "npx cap sync",
+    "android:open": "npx cap open android",
+    "android:build": "cd android && ./gradlew assembleRelease",
+    "ios:open": "npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1"
+  }
+}
