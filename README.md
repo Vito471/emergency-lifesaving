@@ -84,14 +84,14 @@ Example:
 
 | Platform | Link |
 |---|---|
-| 🤖 Android APK | [Download latest release](https://github.com/Vito471/emergency-lifesaving/releases/latest) |
-| 🍎 iOS | *(coming soon — requires Mac + Apple Developer account)* |
-| 🌐 PWA | *(coming soon — instant web app)* |
+| 🤖 Android | *(coming soon — requires Play Store account $25)* |
+| 🍎 iOS | *(coming soon — requires Mac + Apple Developer account $99/yr)* |
+| 🌐 PWA (Web) | [Open in browser](https://vito471.github.io/emergency-lifesaving/) |
 
-### Install on Android manually
-1. Download the `.apk` or `.aab` from [Releases](https://github.com/Vito471/emergency-lifesaving/releases)
-2. Open the file on your phone
-3. Allow "Install from unknown sources" if prompted
+### Install the PWA on your phone
+1. Open **https://vito471.github.io/emergency-lifesaving/** in Chrome/Safari
+2. Tap **Share** → **Add to Home Screen**
+3. Works offline like a native app
 
 ---
 
