@@ -1,11 +1,13 @@
 {
-  "name": "First Aid Guide - Emergency Preparedness",
-  "short_name": "First Aid",
-  "description": "Life-saving first aid knowledge for everyday emergencies. Works offline.",
+  "name": "Emergency & Life-Saving Guide",
+  "short_name": "Emergency Guide",
+  "description": "Free multilingual first aid and emergency response guide. 12 emergencies, 9 languages. Works offline.",
   "start_url": "index.html",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#f0f2f5",
   "theme_color": "#c0392b",
+  "scope": "./",
   "icons": [
     {
       "src": "icon.svg",
@@ -14,7 +16,7 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["medical", "education", "health"],
+  "categories": ["medical", "education", "health", "utilities"],
   "screenshots": [],
   "prefer_related_applications": false
 }

@@ -6,7 +6,10 @@
     <meta name="theme-color" content="#c0392b">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>First Aid Guide - Emergency Preparedness</title>
+    <title>Emergency & Life-Saving Guide</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <meta name="apple-mobile-web-app-title" content="Emergency Guide">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
@@ -814,7 +817,11 @@
         return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
     }
 
-    console.log('🚑 First Aid Guide loaded — stay prepared, save lives.');
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+    }
+
+    console.log('🚑 Emergency & Life-Saving Guide loaded — stay prepared, save lives.');
 </script>
 
 </body>
