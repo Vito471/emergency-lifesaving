@@ -39,12 +39,8 @@ jobs:
       - run: mkdir -p www/images && cp index.html www/ && cp images/*.png www/images/ 2>/dev/null || true
       - run: npm ci
       - run: npx cap sync ios
-      - run: |
-          cd ios/App
-          xcodebuild -workspace App.xcworkspace \n            -scheme App \n            -configuration Release \n            -archivePath build/App.xcarchive \n            -allowProvisioningUpdates \n            archive
-      - run: |
-          cd ios/App
-          xcodebuild -exportArchive \n            -archivePath build/App.xcarchive \n            -exportPath build/App.ipa \n            -exportOptionsPlist exportOptions.plist \n            -allowProvisioningUpdates
+      - run: cd ios/App && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath build/App.xcarchive -allowProvisioningUpdates archive
+      - run: cd ios/App && xcodebuild -exportArchive -archivePath build/App.xcarchive -exportPath build/App.ipa -exportOptionsPlist exportOptions.plist -allowProvisioningUpdates
       - uses: actions/upload-artifact@v4
         with:
           name: ios-app
