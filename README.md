@@ -1,151 +1,147 @@
-# Emergency & Life-Saving Guide - Mobile App
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Vito471/emergency-lifesaving/main/Images/CPR.png" alt="Emergency & Life-Saving Guide" width="120">
+  <h1 align="center">🚑 Emergency & Life-Saving Guide</h1>
+  <p align="center">
+    <strong>Life-saving knowledge, always in your pocket.</strong><br>
+    A multilingual first aid & emergency response app — free for everyone.
+  </p>
+  <p>
+    <a href="https://github.com/Vito471/emergency-lifesaving/actions"><img src="https://img.shields.io/github/actions/workflow/status/Vito471/emergency-lifesaving/build.yml?branch=main&logo=github&label=Build" alt="Build"></a>
+    <a href="https://github.com/Vito471/emergency-lifesaving/releases"><img src="https://img.shields.io/github/v/release/Vito471/emergency-lifesaving?logo=android&label=Download" alt="Download"></a>
+    <img src="https://img.shields.io/badge/languages-9-brightgreen" alt="9 languages">
+    <img src="https://img.shields.io/badge/categories-12-red" alt="12 categories">
+    <img src="https://img.shields.io/badge/license-free%20to%20use-green" alt="License">
+    <img src="https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue" alt="Platform">
+  </p>
+</div>
 
-A cross-platform mobile app built with Capacitor (Android + iOS).
+---
 
-## Prerequisites
+## 📖 About
 
-### Android
-- [Android Studio](https://developer.android.com/studio)
-- Android SDK (API 34+)
-- Java JDK 17+
-- Set `ANDROID_HOME` environment variable to your SDK path
+A fully offline first aid and emergency response guide covering **12 life-threatening situations** in **9 languages**. Built with ❤️ to help anyone, anywhere, at no cost.
 
-### iOS (macOS only)
-- Xcode 15+
-- CocoaPods (`sudo gem install cocoapods`)
+| | | |
+|---|---|---|
+| 🫀 CPR & AED | 💔 Heart Attack | 🧠 Stroke — FAST |
+| 🫁 Choking / Heimlich | 🩸 Severe Bleeding | 🔥 Burns |
+| 🦴 Broken Bones | 🤧 Allergic Reaction | ☠️ Poisoning |
+| 🤕 Head Injury | ⚡ Shock | 🌊 Drowning |
 
-## Quick Start
+---
+
+## 🌍 Languages
+
+| Flag | Language | Status |
+|---|---|---|
+| 🇺🇸 | English | ✅ Full |
+| 🇦🇱 | Shqip (Albanian) | ✅ Full |
+| 🇪🇸 | Español | ✅ Full |
+| 🇫🇷 | Français | ✅ Full |
+| 🇩🇪 | Deutsch | ✅ Full |
+| 🇮🇹 | Italiano | ✅ Full |
+| 🇹🇷 | Türkçe | ✅ Full |
+| 🇸🇦 | العربية (Arabic) | ✅ Full |
+| 🇨🇳 | 中文 (Chinese) | ✅ Full |
+
+---
+
+## ✨ Features
+
+- **✅ Step-by-step instructions** — clear, numbered steps for each emergency
+- **✅ Dos & Don'ts** — quick reference of what to do and what to avoid
+- **✅ Callout tips** — expert advice for special situations
+- **✅ Emergency numbers** — 911, 112, Poison Control, Crisis Lifeline
+- **✅ Search** — find emergencies instantly by name or symptom
+- **✅ Offline** — works without internet
+- **✅ Multilingual** — switch languages on the fly
+- **✅ Mobile-optimized** — clean UI that works on any screen size
+
+---
+
+## 📸 Screenshots
+
+*(Add your screenshots here — take them on your phone!)*
+
+```
+Hero page  →  Category grid  →  Emergency detail  →  Language picker
+```
+
+To add screenshots:
+1. Take screenshots on your phone
+2. Create a `screenshots/` folder in the repo
+3. Add images with `![alt](screenshots/filename.png)`
+
+Example:
+```
+![Home screen](screenshots/home.png)
+![CPR steps](screenshots/cpr.png)
+```
+
+---
+
+## 📥 Download
+
+| Platform | Link |
+|---|---|
+| 🤖 Android APK | [Download latest release](https://github.com/Vito471/emergency-lifesaving/releases/latest) |
+| 🍎 iOS | *(coming soon — requires Mac + Apple Developer account)* |
+| 🌐 PWA | *(coming soon — instant web app)* |
+
+### Install on Android manually
+1. Download the `.apk` or `.aab` from [Releases](https://github.com/Vito471/emergency-lifesaving/releases)
+2. Open the file on your phone
+3. Allow "Install from unknown sources" if prompted
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| HTML / CSS / JS | App UI and logic |
+| [Capacitor](https://capacitorjs.com) | Native Android & iOS wrapper |
+| GitHub Actions | Automated building (CI/CD) |
+
+---
+
+## 🚀 Build Locally
 
 ```bash
+# Clone
+git clone https://github.com/Vito471/emergency-lifesaving.git
+cd emergency-lifesaving
+
 # Install dependencies
 npm install
 
-# Copy web assets to native projects
-npx cap copy
-
-# Sync native projects
+# Sync web to native
 npx cap sync
-```
-
-## Building for Android
-
-```bash
-# Sync latest web changes
-npx cap sync android
 
 # Open in Android Studio
 npx cap open android
-
-# Or build directly
-cd android
-./gradlew assembleRelease
 ```
 
-The APK will be at: `android/app/build/outputs/apk/release/app-release.apk`
+The CI builds automatically on every push — grab your `.aab` from the **Actions** tab.
 
-For Play Store upload, generate a signed AAB:
-```bash
-cd android
-./gradlew bundleRelease
-```
-AAB will be at: `android/app/build/outputs/bundle/release/app-release.aab`
+---
 
-## Building for iOS (macOS required)
+## 🤝 Contribute
 
-```bash
-# Sync latest web changes
-npx cap sync ios
+This app is free and open to contributions:
+- **Translate** — add a new language
+- **Improve** — fix steps or add new emergencies
+- **Share** — tell someone who might need this
 
-# Open in Xcode
-npx cap open ios
+---
 
-# In Xcode:
-# 1. Set your Team in Signing & Capabilities
-# 2. Build -> Archive
-# 3. Upload to App Store Connect
-```
+## 📄 License
 
-## Updating Web Content
+Free for everyone. Built to help save lives.
 
-After modifying `www/index.html`:
-```bash
-npx cap copy
-```
+---
 
-## App Icons & Splash Screens
-
-Default Capacitor icons are used. To customize:
-1. Replace `android/app/src/main/res/mipmap-*/ic_launcher.png`
-2. Replace iOS icons in `ios/App/App/Assets.xcassets/AppIcon.appiconset/`
-3. Run `npx cap copy` to refresh
-
-## Versioning
-
-Update version in:
-- `package.json` (version field)
-- `android/app/build.gradle` (versionName)
-- iOS: Xcode project settings
-
-## App Details
-
-- **Package/Bundle ID**: `com.emergency.lifesaving`
-- **App Name**: Emergency & Life-Saving
-- **Min Android SDK**: 23 (Android 6.0)
-- **Target**: Android 14+ / iOS 16+
-
-## GitHub Actions (CI/CD)
-
-The repo includes automated builds via GitHub Actions.
-
-### What it does
-
-| Trigger | Android | iOS |
-|---|---|---|
-| Push to `main` | ✅ Builds AAB | ✅ Builds IPA |
-| Pull request | ✅ Builds AAB | ❌ (skips to save macOS minutes) |
-| Manual (`workflow_dispatch`) | ✅ Builds AAB | ✅ Builds IPA |
-| Manual + upload flags | ✅ + Play Store | ✅ + App Store |
-
-### Android works immediately
-
-1. Push your code to GitHub
-2. The workflow builds an Android AAB automatically
-3. Download it from the **Actions** tab → Artifacts
-
-### iOS needs setup first
-
-iOS builds require Apple Developer credentials. Add these **GitHub Secrets**:
-
-1. Go to your repo → Settings → Secrets and variables → Actions
-2. Add the following:
-
-| Secret name | What to put |
-|---|---|
-| `APPLE_DEVELOPER_TEAM_ID` | Your Apple Developer Team ID (10 chars, like `A1B2C3D4E5`) |
-| `IOS_DISTRIBUTION_CERTIFICATE_BASE64` | Your distribution cert `.p12` file encoded as base64 |
-| `IOS_DISTRIBUTION_CERTIFICATE_PASSWORD` | The password you set when exporting the `.p12` |
-
-To generate these on a Mac:
-```bash
-# From a Mac with Xcode (borrow one, or use cloud Mac):
-security find-identity -v -p ios
-# Export distribution cert:
-security export -k login.keychain -t certs -f pkcs12 -o dist.p12
-# Base64 encode:
-base64 -i dist.p12 | pbcopy
-# Paste the result as IOS_DISTRIBUTION_CERTIFICATE_BASE64
-```
-
-### One-click deploy to stores
-
-Once secrets are set, run the workflow manually with:
-- **"Upload Android AAB to Play Store"** — checked
-- **"Upload iOS IPA to App Store"** — checked
-
-This needs extra secrets:
-
-| Secret | For |
-|---|---|
-| `PLAY_STORE_SERVICE_ACCOUNT_JSON` | Android — Google Play Console → Service Account JSON |
-| `APPLE_ID` | iOS — your Apple ID email |
-| `APPLE_APP_SPECIFIC_PASSWORD` | iOS — generate at appleid.apple.com → App-Specific Passwords |
+<div align="center">
+  <strong>Today you save someone's life — tomorrow someone saves yours.</strong><br>
+  <a href="https://github.com/Vito471/emergency-lifesaving">⭐ Star this repo</a> · <a href="https://github.com/Vito471/emergency-lifesaving/issues">🐛 Report issue</a>
+</div>
