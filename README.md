@@ -141,7 +141,7 @@ Free for everyone. Built to help save lives.
 
 This will always be a free to use app, no donations required unless you want to buy this nerd a coffe :D 
 
-Paypal.me/emirshehu2
+[Paypal.me/emirshehu2](https://www.paypal.com/paypalme/emirshehu2)
 
 ---
 
